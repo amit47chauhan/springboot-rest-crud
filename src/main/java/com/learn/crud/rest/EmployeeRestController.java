@@ -2,6 +2,8 @@ package com.learn.crud.rest;
 
 import com.learn.crud.dao.EmployeeDAO;
 import com.learn.crud.entity.Employee;
+import com.learn.crud.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,20 +14,17 @@ import java.util.List;
 @RequestMapping("/api")
 public class EmployeeRestController {
 
-    private EmployeeDAO employeeDAO;
+    private EmployeeService employeeService;
 
-    // quick and dirty : inject employee dao (using constructor injection),
-    // will refactor later
-
-    public EmployeeRestController(EmployeeDAO employeeDAO) {
-        this.employeeDAO = employeeDAO;
+    @Autowired
+    public EmployeeRestController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
-
     // expose "/employees" and return a list of
 
     @GetMapping("/employees")
     public List<Employee> findAllEmployees() {
-        return employeeDAO.findAll();
+        return employeeService.findAll();
     }
 
 }
