@@ -2,7 +2,6 @@ package com.learn.crud.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.learn.crud.dao.EmployeeDAO;
 import com.learn.crud.entity.Employee;
 import com.learn.crud.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
-
-import static org.apache.tomcat.jni.SSLConf.apply;
 
 @RestController
 @RequestMapping("/api")
